@@ -1,0 +1,125 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0b132a;
+  background: #f5f8ff;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.title {
+  font-size: 32px;
+  margin: 10px 0 16px;
+  color: #1d4ed8;
+  text-align: center;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #e8f0ff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #c7d6f9;
+}
+.toolbar-right { display: flex; gap: 10px; }
+
+.input {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #b0c4ff;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+}
+.input:focus {
+  border-color: #2563eb;
+}
+
+.btn {
+  height: 38px;
+  padding: 0 14px;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover { background: #2563eb; }
+.btn:active { background: #1e40af; }
+
+.summary-text {
+  margin: 14px 0 20px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #c7d6f9;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+}
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #1d4ed8;
+}
+.card p { margin: 4px 0; font-size: 15px; color: #1e293b; }
+
+.card .btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card .btn {
+  background: #60a5fa;
+  color: #fff;
+  border: 1px solid #3b82f6;
+}
+.card .btn:hover { background: #3b82f6; }
+
+.muted { color: #64748b; font-size: 14px; }
+
+.modal.hidden { display: none; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  width: min(90vw, 420px);
+  background: #fff;
+  border: 1px solid #c7d6f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 18px;
+}
+.modal-box h3 {
+  margin: 0 0 8px;
+  color: #1d4ed8;
+  font-size: 18px;
+}
+.modal-box p {
+  margin: 0 0 12px;
+  color: #0b132a;
+}

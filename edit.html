@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Edit Stone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Edit Stone</h1>
+
+    <form id="editForm" class="card" style="max-width:520px;margin:0 auto;">
+      <label style="display:block;margin-bottom:8px;">
+        Тип каменю
+        <select id="type" class="input" required>
+          <option value="">Оберіть тип</option>
+          <option>Diamond</option>
+          <option>Ruby</option>
+          <option>Emerald</option>
+          <option>Sapphire</option>
+          <option>Opal</option>
+        </select>
+      </label>
+
+      <label style="display:block;margin:12px 0 8px;">
+        Карати
+        <input id="carats" class="input" type="number" step="0.01" min="0.01" required>
+      </label>
+
+      <div class="btn-row">
+        <button class="btn" type="submit">Save</button>
+        <a class="btn" href="index.html" type="button">Cancel</a>
+      </div>
+    </form>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>Повідомлення</h3>
+      <p id="modalText">Текст</p>
+      <button class="btn" id="modalClose">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const LS_KEY = 'stones';
+    const pricePerCarat = { Diamond:5000, Ruby:1000, Emerald:800, Sapphire:600, Opal:56 };
+
+    const qs = new URLSearchParams(window.location.search);
+    const id = qs.get('id');
+
+    const form = document.getElementById('editForm');
+    const type = document.getElementById('type');
+    const carats = document.getElementById('carats');
+
+    const modal = document.getElementById('modal');
+    const modalText = document.getElementById('modalText');
+    const modalClose = document.getElementById('modalClose');
+    const showModal = (msg) => { modalText.textContent = msg; modal.classList.remove('hidden'); };
+    modalClose.onclick = () => modal.classList.add('hidden');
+
+    const readLS = () => JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+    const writeLS = (arr) => localStorage.setItem(LS_KEY, JSON.stringify(arr));
+
+    const data = readLS();
+    const item = data.find(x => x.id === id);
+    if (!item) {
+      showModal('Елемент не знайдено. Повертаю на список.');
+      modalClose.onclick = () => window.location.href = 'index.html';
+    } else {
+      type.value = item.type;
+      carats.value = item.carats;
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) {
+        showModal('Перевірте поля форми.');
+        return;
+      }
+      if (!(type.value in pricePerCarat)) {
+        showModal('Для вибраного типу немає ціни за карат.');
+        return;
+      }
+
+      item.type = type.value;
+      item.carats = parseFloat(carats.value);
+      item.pricePerCarat = pricePerCarat[item.type] || 0;
+      item.price = +(item.pricePerCarat * item.carats).toFixed(2);
+      writeLS(data);
+
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
