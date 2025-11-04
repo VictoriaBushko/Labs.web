@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f8ff;
+  color: #0b132a;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.diamond {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #60a5fa, #2563eb);
+  transform: rotate(45deg);
+  border-radius: 8px;
+  border: 2px solid #93c5fd;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin: auto;
+}
+.diamond:hover {
+  transform: rotate(45deg) scale(1.1);
+  box-shadow: 0 0 25px rgba(147, 197, 253, 0.8);
+}
+.diamond-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: white;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.shine {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.15) 100%);
+  transform: rotate(-45deg);
+  animation: shineMove 3s infinite linear;
+}
+@keyframes shineMove {
+  0% { transform: rotate(-45deg) translateX(-100%); }
+  100% { transform: rotate(-45deg) translateX(100%); }
+}
+
+.select { display:flex; flex-direction:column; gap:6px; }
+.select-label { font-size:12px; color:#475569; }
+.select select { padding:8px 10px; border:1px solid #cbd5e1; border-radius:6px; background:#fff; }
+
+.search-input { padding:9px 12px; border:1px solid #cbd5e1; border-radius:6px; width:100%; }
+
+.select { display:flex; flex-direction:column; gap:6px; }
+.select-label { font-size:12px; color:#475569; }
+.select select { padding:8px 10px; border:1px solid #cbd5e1; border-radius:6px; background:#fff; }
+
+.search-input { padding:9px 12px; border:1px solid #cbd5e1; border-radius:6px; width:100%; }
