@@ -1,0 +1,56 @@
+.footer{
+  width: 100%;
+  background: #1e3a8a;   /* той самий синій, що й у хедері */
+  color: #dbeafe;
+  padding: 18px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-branding { flex: 1; text-align: left; }
+.social { flex: 1; display: flex; justify-content: flex-end; gap: 16px; }
+.social a { color: #dbeafe; font-size: 22px; transition: color 0.3s, transform 0.2s; }
+.social a:hover { color: #fff; transform: scale(1.2); }
+
+.diamond {
+  position: relative;
+  width: 60px;  
+  height: 60px;  
+  background: linear-gradient(145deg, #60a5fa, #2563eb);
+  transform: rotate(45deg);
+  border-radius: 8px;
+  border: 2px solid #93c5fd; 
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin: auto;
+}
+.diamond:hover { transform: rotate(45deg) scale(1.1); box-shadow: 0 0 25px rgba(147, 197, 253, 0.8); }
+
+.diamond-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  color: white;
+  font-weight: 700;
+  font-size: 11px;  
+  letter-spacing: 1px;
+}
+
+.shine {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.15) 100%);
+  transform: rotate(-45deg);
+  animation: shineMove 3s infinite linear;
+}
+@keyframes shineMove {
+  0% { transform: rotate(-45deg) translateX(-100%); }
+  100% { transform: rotate(-45deg) translateX(100%); }
+}

@@ -1,0 +1,12 @@
+@import "./components/Header/Header.css";
+@import "./components/Footer/Footer.css";
+@import "./components/Hero/Hero.css";
+@import "./components/Navigation/Navigation.css";
+@import "./components/Tile/Tile.css";
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f8ff;
+  color: #0b132a;
+}
+.container { width: min(1100px, 90%); margin: 0 auto; }
