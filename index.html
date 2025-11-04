@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Список каменів</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Список каменів</h1>
+
+    <div class="toolbar">
+      <input id="searchInput" class="input" placeholder="Пошук за типом..." />
+      <div class="toolbar-right">
+        <a class="btn" href="create.html">Create Stone</a>
+        <button id="sortBtn" class="btn">Сортувати за ціною</button>
+        <button id="sumBtn" class="btn">Порахувати загальну ціну</button>
+      </div>
+    </div>
+
+    <p id="summary" class="summary-text">Загальна сума: $0.00</p>
+
+    <div id="cards" class="cards-grid"></div>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

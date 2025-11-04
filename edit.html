@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Stone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Редагувати камінь</h1>
+      <nav><a class="btn" href="index.html">← Назад</a></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="editForm" class="form">
+      <label>
+        Тип
+        <select id="type" required>
+          <option>Diamond</option>
+          <option>Ruby</option>
+          <option>Emerald</option>
+          <option>Sapphire</option>
+          <option>Opal</option>
+        </select>
+      </label>
+
+      <label>
+        Карати
+        <input id="carats" type="number" step="0.01" min="0.01" required />
+      </label>
+
+      <button class="btn" type="submit">Зберегти</button>
+    </form>
+  </main>
+
+  <script>
+    const API = 'http://localhost:3000';
+    const id = new URLSearchParams(window.location.search).get('id');
+
+    async function load() {
+      const r = await fetch(`${API}/stones/${id}`);
+      const item = await r.json();
+      document.getElementById('type').value = item.type;
+      document.getElementById('carats').value = item.carats;
+    }
+
+    document.getElementById('editForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const type = document.getElementById('type').value;
+      const carats = parseFloat(document.getElementById('carats').value);
+      const r = await fetch(`${API}/stones/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, carats })
+      });
+      if (r.ok) window.location.href = 'index.html';
+      else alert('Помилка при оновленні');
+    });
+
+    load();
+  </script>
+</body>
+</html>

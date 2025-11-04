@@ -1,0 +1,37 @@
+[
+  {
+    "id": "f7890b00-202f-480e-99d6-ff0b1b7028ad",
+    "type": "Opal",
+    "carats": 8,
+    "pricePerCarat": 56,
+    "price": 448
+  },
+  {
+    "id": "51d9a93e-98e0-46c9-8873-587bbdfbac31",
+    "type": "Ruby",
+    "carats": 2,
+    "pricePerCarat": 1000,
+    "price": 2000
+  },
+  {
+    "id": "381ad3a3-ca36-40c2-9535-e8eba7c48d15",
+    "type": "Ruby",
+    "carats": 5,
+    "pricePerCarat": 1000,
+    "price": 5000
+  },
+  {
+    "id": "b4a6e6ed-cef1-483d-ae35-8d18d8ee3eca",
+    "type": "Opal",
+    "carats": 4,
+    "pricePerCarat": 56,
+    "price": 224
+  },
+  {
+    "id": "f8461867-f022-45c0-905b-ebd8e4e54be4",
+    "type": "Ruby",
+    "carats": 9,
+    "pricePerCarat": 1000,
+    "price": 9000
+  }
+]
