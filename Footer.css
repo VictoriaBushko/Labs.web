@@ -1,6 +1,6 @@
 .footer{
   width: 100%;
-  background: #1e3a8a;   /* той самий синій, що й у хедері */
+  background: #1e3a8a;   
   color: #dbeafe;
   padding: 18px 0;
   text-align: center;
@@ -54,3 +54,4 @@
   0% { transform: rotate(-45deg) translateX(-100%); }
   100% { transform: rotate(-45deg) translateX(100%); }
 }
+
