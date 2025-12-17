@@ -1,0 +1,5 @@
+.hero { background:#e0e7ff; padding:60px 0; }
+.hero-inner { display:flex; align-items:center; gap:40px; justify-content:flex-start; }
+.hero-img {
+  width:340px; height:240px; border-radius:10px; object-fit:cover; flex-shrink:0;
+}
